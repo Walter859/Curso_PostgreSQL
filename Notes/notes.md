@@ -1048,6 +1048,15 @@ Creamos la data para trayecto y para viaje
 
 ![insersion_masiva_8](src/insersion_masiva_8.jpg)
 
+En caso quieran resetear el contador del id autogenerado:
+
+```sql
+ALTER SEQUENCE <tablename>_<id>_seq RESTART WITH 1
+So, for example for the users table it would be:
+
+ALTER SEQUENCE users_id_seq RESTART WITH 1
+```
+
 ## Modulo 3 Generar consultas avanzadas
 
 ### Clase 18 Cruzar tablas: SQL JOIN
