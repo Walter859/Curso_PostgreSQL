@@ -1126,6 +1126,15 @@ id, nombre, direccion)
 VALUES (, 'Nombre', 'Dire')
 ON CONFLICT(ID) DO UPDATE SET nombre = 'Nombre', direccion = 'Dire';
 ```
+Podemos actualizar la tupla correspondiente con los nuevos valores usando la palabra EXCLUDED, de la siguiente manera:
+
+```SQL
+INSERT INTO tren
+VALUES(1, 'Modelo modificado', 1000)
+ON CONFLICT(id) 
+DO UPDATE SET modelo = EXCLUDED.modelo, capacidad = EXCLUDED.capacidad;
+```
+De la manera anterior hay que escribir a mano los nuevos valores de actualización en el SET, y eso no tiene ningún sentido en el caso de que esta actualización de tuplas a partir del conflicto de id sea ya un proceso automatizado.
 
 **RETURNING**.
 
